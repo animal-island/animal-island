@@ -1,34 +1,12 @@
 <?php
+  require_once 'databaseUtil.php';
+  $database = new DatabaseUtil();
   $array = array();
 
-  $sql = "SELECT * FROM ani_data ORDER BY id ASC";
+  $array = $database->animalList();
   if (!empty($_POST['type'])) {
-    $sql = "SELECT * FROM ani_data WHERE ani_kind LIKE '%". $_POST['type'] ."%' OR name LIKE '%". $_POST['type'] ."%'  ORDER BY id ASC";
+    $array = $database->animalSearch($_POST['type']);
   }
-
-  $dsn = "mysql:host=localhost;dbname=test;charset=utf8";
-  $dbuser = "root";
-  $dbpass = "";
-
-  try {
-    // 接続
-    $pdo = new PDO($dsn, $dbuser, $dbpass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-
-    // $sql = "SELECT * FROM ani_data ORDER BY id ASC";
-
-    $stmt = $pdo->query($sql);
-
-    while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
-      $array[] = $row;
-    }
-
-  } catch (Exception $e) {
-    echo $e->getMessage();
-  }
-
-  $pdo = null;
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,30 +35,25 @@
           } else {
             echo "<div class='detail'>";
           }
-          ?>
-        <?php $id1 = $array[$i]["id"];
-             echo"<a href='result.php?id=".$id1."' class='s'>"
-            ?>
-                <!-- ?id=cat -->
-              <div class="centered"> <!-- centered or centered2 -->
-                <div>
-                  <img alt="" src="<?php echo $array[$i]["url"] ?>">
-                </div>
-              </div>
-              <div class="text">
-                <p><font>種類：</font><?php  echo $array[$i]["ani_kind"] ?></p>
-                <p><font>名前：</font><?php  echo $array[$i]["name"] ?></p>
-              </div>
-            </a>
-          </div>
-          <?php
-        }
       ?>
+        <a href='result.php?id=<?php echo $array[$i]["id"] ?>' class='s'>
+          <!-- ?id=cat -->
+          <div class="centered"> <!-- centered or centered2 -->
+            <div>
+              <img alt="" src="<?php echo $array[$i]["url"] ?>">
+            </div>
+          </div>
+
+          <div class="back-image"></div>
+          <div class="text">
+            <!-- <p><font>種類：</font><?php  echo $array[$i]["ani_kind"] ?></p> -->
+            <!-- <p><font>名前：</font><?php  echo $array[$i]["name"] ?></p> -->
+            <!-- <p><?php  echo $array[$i]["name"] ?></p> -->
+            <p>たま</p>
+          </div>
+        </a>
+      </div>
+      <?php } ?>
     </div>
   </body>
 </html>
-
-
-
-<!-- INSERT INTO `ani_data` (`id`, `name`, `ani_kind`, `url`, `sex`, `age`, `health`) VALUES
-('cat', 'mike', 'neko', 'http://image.itmedia.co.jp/nl/articles/1601/16/nt_160116nekoshashin08.jpg', '雄', 7, '健康'); -->
