@@ -36,144 +36,18 @@
     <meta charset="utf-8">
     <title>一覧</title>
     <link rel="stylesheet" type="text/css" href="css/style2.css">
-    <style media="screen">
-      body {
-        margin: 0px;
-        padding: 0px;
-      }
-     @font-face {
-        font-family: 'MyWebFont';
-        src: url('./font/FriendsFu.woff') format('woff');
-     }
-
-      h2 {
-        padding: 10px 0 5px 20px;
-        margin: 0;
-        text-align: left;
-        font-size: 140%;
-        font-weight: bold;
-        font-family: 'MyWebFont';
-      }
-      hr {
-        margin-top: 0px;
-        margin-bottom: 20px;
-      }
-
-      a {
-        text-decoration: none;
-        color: #000;
-      }
-      font {
-        color: gray;
-      }
-
-      #container {
-        width: 610px;
-        text-align: center;
-        margin: 0 auto;
-        background: transparent;
-        padding: 0 30px;
-      }
-
-      form {
-        margin: 15px 0;
-      }
-
-      .search-field {
-        background: #ffffff url(https://cookpad.com/assets/global/icon_header_search.png) 7px 50% no-repeat;
-        width: 210px;
-        border-radius: 3px;
-        font-size: 86%;
-        padding: 6px 0 6px 27px;
-        margin: 0 5px 0 0;
-        box-shadow: inset 1px 1px 4px #e6e6e6;
-        box-sizing: border-box;
-        border: 1px solid #cccccc;
-      }
-
-      .search-button {
-        font-size: 100%;
-        background: linear-gradient(to bottom, #ffffff, #ececec);
-        border-radius: 3px;
-        height: 30px;
-        border: 1px solid #cccccc;
-        padding-top: 2px;
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-
-      .detail {
-        width: 190px;
-        float: left;
-        margin-right: 20px;
-        margin-bottom: 20px;
-      }
-      .last {
-        margin-right: 0;
-      }
-
-      .centered2 {
-        float: left;
-        background-color: rgba(0,0,0,0.1);;
-        display: table;
-        height: 150px;
-        width: 190px;
-        margin-right: 10px;
-      }
-
-      .centered2 > div {
-        display: table-cell;
-        vertical-align: middle;
-      }
-
-      .centered2 img {
-        display: block;
-        margin: 0 auto;
-        max-height: 150px;
-        max-width: 190px;
-      }
-
-      .centered{
-        position: relative;
-        width: 190px;/*　幅（100%以下で指定 or px）　*/
-        padding-top: 150px;/*　高さ（100%以下で指定 or px）　*/
-        overflow: hidden;
-        margin: 0 auto;
-      }
-      .centered img{
-      /* 画像を上下左右に中央配置する（絶対指定） */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        /* 画像の最大サイズは枠の1.5倍まで */
-        max-width: 150%;
-        max-height: 150%;
-      }
-
-      .text {
-        text-align: left;
-        margin: 0;
-        padding: 5px;
-      }
-      .text p {
-        margin: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/list.css">
   </head>
   <body>
     <?php include_once './navi.html'; ?>
 
     <div id="container">
-      <form class="" action="./list.php" method="post">
+      <form class="search-form" action="./list.php" method="post">
         <input type="text" name="type" class="search-field" value="" placeholder="動物の種類・名前">
         <input type="submit" name="" class="search-button" value="検索">
-        <a href="island.php">トップへ</a>
       </form>
 
-      <h2>どうぶついちらん</h2>
+      <h2 class="list-title">どうぶついちらん</h2>
       <hr>
 
       <?php
