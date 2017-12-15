@@ -1,0 +1,155 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('../font/FriendsFu.woff') format('woff');
+}
+
+.list-title {
+  border-bottom: inherit;
+  border-top: initial;
+  margin-bottom: initial;
+  padding: initial;
+  margin: 10px 0 5px 20px;
+  text-align: left;
+  font-size: 140%;
+  font-weight: bold;
+  font-family: 'MyWebFont';
+}
+
+hr {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  opacity: 0.3;
+}
+
+font {
+  color: gray;
+}
+
+#container {
+  width: 640px;
+  text-align: center;
+  margin: 0 auto;
+  background: transparent;
+  padding: 0 30px;
+}
+
+.search-form {
+  margin: 15px 0;
+}
+
+.search-field {
+  background: #ffffff url(https://cookpad.com/assets/global/icon_header_search.png) 7px 50% no-repeat;
+  width: 210px;
+  border-radius: 3px;
+  font-size: 86%;
+  padding: 7px 0 7px 27px;
+  margin: 0 5px 0 0;
+  box-shadow: inset 1px 1px 4px #e6e6e6;
+  box-sizing: border-box;
+  border: 1px solid #cccccc;
+}
+
+.search-button {
+  font-size: 100%;
+  background: linear-gradient(to bottom, #ffffff, #ececec);
+  border-radius: 3px;
+  height: 30px;
+  border: 1px solid #cccccc;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.detail {
+  position: relative;
+  background: #ccc;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 200px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.detail:hover {
+  opacity: 0.8;
+}
+
+.last {
+  margin-right: 0;
+}
+
+.centered2 {
+  float: left;
+  background-color: rgba(0,0,0,0.1);;
+  display: table;
+  height: 150px;
+  width: 190px;
+  margin-right: 10px;
+}
+
+.centered2 > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.centered2 img {
+  display: block;
+  margin: 0 auto;
+  max-height: 150px;
+  max-width: 190px;
+}
+
+.centered{
+  position: relative;
+  width: 200px;/*　幅（100%以下で指定 or px）　*/
+  padding-top: 180px;/*　高さ（100%以下で指定 or px）　*/
+  overflow: hidden;
+  margin: 0 auto;
+}
+.centered img{
+/* 画像を上下左右に中央配置する（絶対指定） */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  /* 画像の最大サイズは枠の1.5倍まで */
+  min-width: 100%;
+  max-width: 150%;
+  max-height: 150%;
+}
+
+.back-image {
+  background: rgba(65, 105, 225, 0.3) url(../img/mori.png);
+  opacity: 0.75;
+  position: absolute;
+  top: calc(100% - 45px);
+  bottom: 0px;
+  width: 100%;
+}
+
+.text {
+  position: absolute;
+  top: calc(100% - 45px);
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding-top: 10px;
+}
+.text p {
+  font-weight: bold;
+  margin: 0;
+}
